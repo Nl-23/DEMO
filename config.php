@@ -1,6 +1,6 @@
 <?php
 return array(
-    'base' => '/htdocs/demo/DEMO/',
+    'base' => '/demo/DEMO/',
     'baseURL' => 'http://localhost/demo/DEMO/',
     'assets' => '/demo/DEMO/assets/',
     'db' => array(
