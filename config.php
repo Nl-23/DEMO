@@ -1,11 +1,11 @@
 <?php
 return array(
-    'base' => '/PTIT24CNTT02/ss15/',
-    'baseURL' => 'http://localhost:88/PTIT24CNTT02/ss15/',
-    'assets' => '/PTIT24CNTT02/ss15/assets',
+    'base' => '/htdocs/demo/DEMO',
+    'baseURL' => 'http://localhost:88/demo/DEMO',
+    'assets' => '/demo/DEMO/assets',
     'db' => array(
         'host'     => 'localhost',
-        'name'     => 'ProductDB',
+        'name'     => 'productdb',
         'username' => 'root',
         'password' => ''
     )
