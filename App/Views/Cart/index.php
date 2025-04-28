@@ -51,7 +51,7 @@ include './App/Views/Layout/homeHeader.php';
 
             <!-- Nút checkout -->
             <div class="text-end">
-                <a href="<?= $baseURL ?>order/checkout" class="btn btn-success">🛍️ Tiến hành thanh toán</a>
+                <a href="<?= $baseURL ?>Order/checkout" class="btn btn-success">🛍️ Tiến hành thanh toán</a>
             </div>
         <?php endif; ?>
     </div>
