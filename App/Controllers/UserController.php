@@ -93,8 +93,9 @@ class UserController
             $subject = htmlspecialchars($_POST['subject']);
             $message = htmlspecialchars($_POST['message']);
 
-            $adminEmail = "nguyenthithuloan238@gmail.com"; // Email admin
-            $emailSubject = "Liên hệ từ $userName";
+            $adminEmail = "van.tranhuuquoc@umt.edu.vn"; // Email admin
+            $emailSubject = "Liên hệ từ $userEmail";
+            // $emailSubject = "=?UTF-8?B?" . base64_encode("Liên hệ từ $userEmail") . "?=";
 
             // Nội dung email đẹp
             $emailBody = "<h3>Thông tin liên hệ</h3>
@@ -108,7 +109,6 @@ class UserController
             } else {
                 $_SESSION['contact_error'] = "Gửi email thất bại. Vui lòng thử lại!";
             }
-
             $config = require 'config.php';
             $baseURL = $config['baseURL'];
             header("Location: " . $baseURL . 'user/contact');

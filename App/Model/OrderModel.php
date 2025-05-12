@@ -35,4 +35,34 @@ class OrderModel
         $stmt->execute([$userId]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getAllOrdersWithUser()
+    {
+        $sql = "SELECT orders.*, users.fullname 
+                FROM orders 
+                LEFT JOIN users ON orders.user_id = users.id 
+                ORDER BY orders.order_date DESC";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function updateStatus($orderId, $newStatus)
+    {
+        $sql = "UPDATE orders SET status = ? WHERE id = ?";
+        $stmt = $this->db->prepare($sql);
+        return $stmt->execute([$newStatus, $orderId]);
+    }
+    public function getOrderCountPerDay($days = 7)
+    {
+        $stmt = $this->db->prepare("
+            SELECT DATE(order_date) as order_day, COUNT(*) as order_count
+            FROM orders
+            WHERE order_date >= DATE_SUB(CURDATE(), INTERVAL :days DAY)
+            GROUP BY order_day
+            ORDER BY order_day ASC
+        ");
+        $stmt->bindValue(':days', $days, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

@@ -64,4 +64,23 @@ class OrderController
     {
         echo "U in method Create of UserController Controoler";
     }
+    public function updateStatus()
+    {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $orderId = $_POST['order_id'];
+            $status = $_POST['status'];
+            if (isset($status) && !empty($status)) {
+                require_once __DIR__ . "/../Model/OrderModel.php";
+                $orderModel = new OrderModel();
+                $orderModel->updateStatus($orderId, $status);
+            }
+
+            $config = require './config.php';
+
+            header('Location: ' . $config['baseURL'] . 'Admin/orderManagement');
+
+            exit();
+        }
+    }
 }

@@ -1,4 +1,4 @@
-<?php require __DIR__ . "/../Layout/HomeHeader.php";
+<?php require __DIR__ . "/../Layout/homeheader.php";
 // var_dump($productlist);
 $config = require 'config.php';
 $baseURL = $config['baseURL'];

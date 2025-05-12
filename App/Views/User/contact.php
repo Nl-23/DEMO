@@ -3,7 +3,7 @@ $config = require 'config.php';
 $baseURL = $config['baseURL'];
 ?>
 
-<?php include './App/Views/Layout/HomeHeader.php'; ?>
+<?php include './App/Views/Layout/homeheader.php'; ?>
 
 <div class="container py-5">
     <div class="row justify-content-center">
